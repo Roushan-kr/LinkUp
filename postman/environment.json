@@ -1,0 +1,15 @@
+{
+  "name": "PingUp Local",
+  "values": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:4000/api",
+      "enabled": true
+    },
+    {
+      "key": "authToken",
+      "value": "your_auth_token_here",
+      "enabled": true
+    }
+  ]
+}
