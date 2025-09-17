@@ -10,7 +10,16 @@ const CreatePost = () => {
   const user = dummyUserData;
 
 const handleSubmit = async () =>{
+  if (!content.trim() && images.length === 0) {
+    throw new Error('Please add some content or images.');
+  }
 
+  // Simulate API call
+  await new Promise((resolve) => setTimeout(resolve, 1500));
+
+  // Reset form after "submission"
+  setContent('');
+  setImages([]);
 }
 
   return (

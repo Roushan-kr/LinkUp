@@ -1,9 +1,7 @@
-import express from 'express';
-import cors from 'cors';
 import 'dotenv/config';
+import cors from 'cors';
+import express from 'express';
 import connectDB from './configs/db.js';
-// import { inngest, functions } from "./inngest/index.js"
-// import {serve} from 'inngest/express'
 import userRouter from './routes/userRoute.js';
 import postRouter from './routes/postRoutes.js';
 
@@ -15,10 +13,11 @@ await connectDB();
 app.use(express.json());
 app.use(cors());
 
-// Development mode - mock authentication
-console.log('Running in development mode - using mock authentication');
+
+// global middleware to mock authentication
 app.use((req, res, next) => {
     req.auth = () => Promise.resolve({ userId: 'dev_user_123' });
+    console.log('auth middleware called');
     next();
 });
 
